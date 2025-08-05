@@ -7,17 +7,21 @@
     /* 
    MixitUp
    ========================================================================== */
-  $('#portfolio').mixItUp();
+  if ($('#portfolio').length) {
+    $('#portfolio').mixItUp();
+  }
 
   /* 
    One Page Navigation & wow js
    ========================================================================== */
     var OnePNav = $('.onepage-nev');
     var top_offset = OnePNav.height() - -0;
-    OnePNav.onePageNav({
-      currentClass: 'active',
-      scrollOffset: top_offset,
-    });
+    if (OnePNav.length) {
+      OnePNav.onePageNav({
+        currentClass: 'active',
+        scrollOffset: top_offset,
+      });
+    }
   
   /*Page Loader active
     ========================================================*/
@@ -53,41 +57,47 @@
 
     /* Nivo Lightbox 
     ========================================================*/
-    $('.lightbox').nivoLightbox({
-        effect: 'fadeScale',
-        keyboardNav: true,
-      });
+    if ($('.lightbox').length) {
+      $('.lightbox').nivoLightbox({
+          effect: 'fadeScale',
+          keyboardNav: true,
+        });
+    }
 
     /* Counter
     ========================================================*/
-    $('.counterUp').counterUp({
-     delay: 20,
-     time: 3000
-    });
+    if ($('.counterUp').length) {
+      $('.counterUp').counterUp({
+       delay: 20,
+       time: 3000
+      });
+    }
 	
 	 /* Tesimonial
     ========================================================*/
-	$(".carousel-testimony").owlCarousel({
-		loop:true,
-		navText:false,
-		autoplay: true,
-		items:1,
-		slideSpeed: 5000,
-		responsive:{
-			0:{
-				items:1
-			},
-			768:{
-				items:1
-			},
-			979:{
-				items:1
-			},
-			1000:{
-				items:1
+	if ($(".carousel-testimony").length) {
+		$(".carousel-testimony").owlCarousel({
+			loop:true,
+			navText:false,
+			autoplay: true,
+			items:1,
+			slideSpeed: 5000,
+			responsive:{
+				0:{
+					items:1
+				},
+				768:{
+					items:1
+				},
+				979:{
+					items:1
+				},
+				1000:{
+					items:1
+				}
 			}
-		}
-	});
+		});
+	}
 
 
     /* Back Top Link active

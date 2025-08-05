@@ -1,4 +1,9 @@
 jQuery(document).ready(function($){
+	// Check if animated headline elements exist
+	if (!$('.cd-headline').length) {
+		return;
+	}
+	
 	//set animation timing
 	var animationDelay = 2500,
 		//loading bar effect

@@ -1,8 +1,9 @@
 
 // JavaScript contact form Document
 $(document).ready(function() {
-	$('form#contact-form').submit(function() {
-	$('form#contact-form .error').remove();
+	$('form#main_contact_form').submit(function(e) {
+	e.preventDefault();
+	$('form#main_contact_form .error').remove();
 	var hasError = false;
 	$('.requiredField').each(function() {
 	if(jQuery.trim($(this).val()) == '') {
@@ -21,7 +22,7 @@ $(document).ready(function() {
     }
     });
     if(!hasError) {
-    $('form#contact-form input.submit').fadeOut('normal', function() {
+    $('form#main_contact_form input[type="submit"], form#main_contact_form button[type="submit"]').fadeOut('normal', function() {
     $(this).parent().append('');
     });
 
@@ -34,10 +35,14 @@ $(document).ready(function() {
             cache: false,
             processData:false,
             success: function(data){
-			  $('form#contact-form').slideUp("fast", function() {
+			  $('form#main_contact_form').slideUp("fast", function() {
 			  $(this).before('<div class="success">Thank you. Your Email was sent successfully.</div>');
 			  $("#loader").hide();
 			  })
+            },
+            error: function() {
+              $("#loader").hide();
+              $('form#main_contact_form').before('<div class="error">Sorry, there was an error sending your message. Please try again.</div>');
             }           
        });
 	   
